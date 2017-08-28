@@ -1,4 +1,4 @@
-/*var express = require('express');
+var express = require('express');
 var bodyParser = require('body-parser');
 var pg = require('pg');
 
@@ -6,14 +6,17 @@ var app = express();
 // This allows us to accept JSON bodies in POSTs and PUTs.
 app.use(bodyParser.json());
 
+// Serve files from public folder. That's where all of our HTML, CSS and Angular JS are.
+app.use(express.static('public')); //this is telling it to use the public folder!
+
 // Set up a connection pool with wich to access the database in all the
 // operations below.
 var pool = new pg.Pool({
     user: "postgres",
-    password: "****",
+    password: "winter",
     host: "localhost",
     port: 5432,
-    database: "postgres",
+    database: 'finalproject',
     ssl: false
 });
 

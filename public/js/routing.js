@@ -7,7 +7,7 @@
       controller: "homeController"
     });
 
-    $routeProvider.when("/remedy", {
+    $routeProvider.when("/remedies", {
       templateUrl: "partials/remedyinfo.html",
       controller: "remedyController"
     });

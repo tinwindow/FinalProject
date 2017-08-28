@@ -1,6 +1,9 @@
 var app = angular.module("remedyApp");
 
-  app.controller("remedyController", function($scope, $http){
+  app.controller("remedyController", function($scope, $http, $location){
 
-     $scope.selectedRemedy = remedyService.getRemedy();
+    var ailmentName = $location.search().ailment;
+    console.log(ailmentName);
+
+    //  $scope.selectedRemedy = remedyService.getRemedy();
   })
