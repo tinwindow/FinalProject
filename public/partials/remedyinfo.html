@@ -1,25 +1,23 @@
 
-  <div id="remedyContainer">
+  <div class="container">
     <div id="heading">
-      <h1>[remedy name from DB]</h1>
+      <h1>{{title}}</h1>
       <h4>Remember, nothing on this page constitues medical advice! We are merely
       trying to help you make more informed decisions about your health and wellness.</h4>
     </div>
 
-    <div id="remedyPic">
-      <img ng-src="{{selectedremedyfromDB.img}}"/>
-    </div>
 
-      <div id="yourRemedies"> <!--will prob need ng-repeat here since may pull multiple responses from db-->
-          <div id="remedyDescription">
-                [remedy description(s) from DB]
+
+      <div class="remedyNames" ng-repeat ="remedy in remedies"></br>{{remedy.remedyname}}</br>
+        <div id="remedyPic">
+         <img ng-src="{{remedy.remedyimage}}"/>
+        </div>
+
+        <button type ="submit">Click to Upvote This Remedy!</button>
+          <div id="remedyDescription"></br>
+          {{remedy.remedydescription}}</br>
           </div>
-      </div>
-
-      <div id="">[more remedy info] </li></br>
-
       </div>
 
 
   </div>
-</div>
