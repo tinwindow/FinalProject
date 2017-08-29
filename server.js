@@ -39,26 +39,19 @@ app.get('/remedies', function(req, res) {
 // 4. start changing your Angular code to request this API endpoint. The url will simply be "/api/remedies".
 
 
-// GET /rooms - responds with an array of all rooms in the database.
-//app.get('/rooms', function(req, res) {
-    //pool.query("SELECT * FROM Rooms").then(function(result) {
-        //res.send(result.rows);
-  //  }).catch(errorCallback(res));
-//});
+app.put('/remedies/:id/userupvotes', function(req, res) {
 
-// GET /rooms/{ID} - responds with the one matching room from the database.
-// app.get('/rooms/:id', function(req, res) {
-//     var id = req.params.id; // <-- This gets the :id part of the URL
-//     pool.query("SELECT * FROM Rooms WHERE id = $1::int", [id]).then(function(result) {
-//         if (result.rowCount === 0) {
-//             res.status(404); // 404 Not Found
-//             res.send("NOT FOUND");
-//         } else {
-//             Return the first result. There should only be one.
-//             res.send(result.rows[0]);
-//         }
-//    }).catch(errorCallback(res));
-// });
+    console.log("nailed it!");
+    var id = req.params.id; //this gets ID part of URL
+    var sql = "UPDATE holistichealth SET userupvotes = userupvotes + 1 WHERE id=$1::int";
+    var values = [id];
+
+
+    pool.query(sql, values).then(function() {
+        //res.status(201); // 201 Created
+        res.send("UPDATED");
+    }).catch(errorCallback(res));
+});
 
 function errorCallback(res) {
     return function(err) {

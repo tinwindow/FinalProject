@@ -11,9 +11,12 @@
       <div class="remedyNames" ng-repeat ="remedy in remedies"></br>{{remedy.remedyname}}</br>
         <div id="remedyPic">
          <img ng-src="{{remedy.remedyimage}}"/>
-        </div>
+       </div> <!--image must appear AFTER the ng-repeat to ensure correct number display and in right spot-->
 
-        <button type ="submit">Click to Upvote This Remedy!</button>
+        <button ng-click="upVote(remedy.id)">Click to Upvote This Remedy!</button>
+        <div id="upvotes">
+          {{remedy.userupvotes}}
+        </div>
           <div id="remedyDescription"></br>
           {{remedy.remedydescription}}</br>
           </div>

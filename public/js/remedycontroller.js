@@ -5,7 +5,17 @@ var app = angular.module("remedyApp");
     var ailmentName = $location.search().ailment;
     console.log(ailmentName);
 
-    $scope.title = ailmentName; 
+    var upVotes= $location.search().userupvotes;
+
+    function upVote(){ //function should increment var by one, pass to SQL,
+      var upVote = $location.search().userupvotes; {
+        console.log(userupvotes);
+      }
+    }
+
+    $scope.title = ailmentName;
+    $scope.uservotes = upVotes;
+
 
     $http({
       method: 'GET',
