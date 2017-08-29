@@ -21,7 +21,7 @@ var pool = new pg.Pool({
 });
 
 
-app.get('/api/remedies', function(req, res) {
+app.get('/remedies', function(req, res) {
   var ailment = req.query.ailment;
   console.log(ailment);
   pool.query("select * from holistichealth where ailment=$1::text", [ ailment ]).then(function(result) {
