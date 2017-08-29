@@ -5,16 +5,18 @@ var app = angular.module("remedyApp");
     var ailmentName = $location.search().ailment;
     console.log(ailmentName);
 
-    var upVotes= $location.search().userupvotes;
 
-    function upVote(){ //function should increment var by one, pass to SQL,
-      var upVote = $location.search().userupvotes; {
-        console.log(userupvotes);
-      }
-    }
+
+    $scope.upVote = function(id) {
+      console.log("im clicked", id); 
+       var upVoteServer = ('/remedies/' + id + '/userupvotes')
+      $http.put(upVoteServer).then(function success (response) {
+
+      });
+    };
 
     $scope.title = ailmentName;
-    $scope.uservotes = upVotes;
+
 
 
     $http({
