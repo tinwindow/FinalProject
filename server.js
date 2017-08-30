@@ -21,7 +21,7 @@ var pool = new pg.Pool({
 });
 
 
-app.get('/remedies', function(req, res) { //creates an endpoint
+app.get('/remedies', function(req, res) { //creates an endpoint matching requests to /remedies
   var ailment = req.query.ailment; //sets ailment to the DB query of ailment dependent on what you click (clicking takes you to a query string result)
   console.log(ailment);
   pool.query("select * from holistichealth where ailment=$1::text", [ ailment ]).then(function(result) {
@@ -39,7 +39,7 @@ app.get('/remedies', function(req, res) { //creates an endpoint
 // 4. start changing your Angular code to request this endpoint. The url will simply be "/remedies".
 
 
-app.put('/remedies/:id/userupvotes', function(req, res) {
+app.put('/remedies/:id/userupvotes', function(req, res) { //method to update data in column with id "userupvotes"
 
     console.log("nailed it!");
     var id = req.params.id; //this gets ID part of URL
@@ -47,7 +47,7 @@ app.put('/remedies/:id/userupvotes', function(req, res) {
     var values = [id]; //sets value for query parameter below to ID in the SQL DB
 
 
-    pool.query(sql, values).then(function() {
+    pool.query(sql, values).then(function() { //queries DB pool for that ID and sends result statement.
         //res.status(201); // 201 Created
         res.send("UPDATED"); //just sends this result to display in PGAdmin
     }).catch(errorCallback(res));
@@ -61,7 +61,7 @@ function errorCallback(res) {
     }
 }
 
-var port = process.env.PORT || 5000; //sets localhost port to 5000; the app listens on 5000 and console logs the statement to terminal. 
+var port = process.env.PORT || 5000; //sets localhost port to 5000; the app listens on 5000 and console logs the statement to terminal.
 app.listen(port, function () {
   console.log('JSON Server is running on ' + port);
 });
