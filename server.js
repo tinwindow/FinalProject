@@ -1,4 +1,4 @@
-var express = require('express');
+var express = require('express'); //need to require these for this app to work. Body-parser allows us to return JSON data, express is node, pg is for the DB.
 var bodyParser = require('body-parser');
 var pg = require('pg');
 
@@ -21,11 +21,11 @@ var pool = new pg.Pool({
 });
 
 
-app.get('/remedies', function(req, res) {
-  var ailment = req.query.ailment;
+app.get('/remedies', function(req, res) { //creates an endpoint
+  var ailment = req.query.ailment; //sets ailment to the DB query of ailment dependent on what you click (clicking takes you to a query string result)
   console.log(ailment);
   pool.query("select * from holistichealth where ailment=$1::text", [ ailment ]).then(function(result) {
-      res.send(result.rows);
+      res.send(result.rows); //above queries the pool with statement in (), sets the item in the array to "ailment", and returns the results of the rows associated with that ailment.
   }).catch(errorCallback(res));
 });
 
@@ -36,20 +36,20 @@ app.get('/remedies', function(req, res) {
 //    of 'SELECT * FROM Rooms'.
 //    - test it with Postman.
 // 3. change the endpoint to let you specify which ailment.
-// 4. start changing your Angular code to request this API endpoint. The url will simply be "/api/remedies".
+// 4. start changing your Angular code to request this endpoint. The url will simply be "/remedies".
 
 
 app.put('/remedies/:id/userupvotes', function(req, res) {
 
     console.log("nailed it!");
     var id = req.params.id; //this gets ID part of URL
-    var sql = "UPDATE holistichealth SET userupvotes = userupvotes + 1 WHERE id=$1::int";
-    var values = [id];
+    var sql = "UPDATE holistichealth SET userupvotes = userupvotes + 1 WHERE id=$1::int"; //updates column userupvotes in DB by adding 1.
+    var values = [id]; //sets value for query parameter below to ID in the SQL DB
 
 
     pool.query(sql, values).then(function() {
         //res.status(201); // 201 Created
-        res.send("UPDATED");
+        res.send("UPDATED"); //just sends this result to display in PGAdmin
     }).catch(errorCallback(res));
 });
 
@@ -61,7 +61,7 @@ function errorCallback(res) {
     }
 }
 
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 5000; //sets localhost port to 5000; the app listens on 5000 and console logs the statement to terminal. 
 app.listen(port, function () {
   console.log('JSON Server is running on ' + port);
 });

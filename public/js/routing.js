@@ -13,7 +13,7 @@
     });
 
 
-    $routeProvider.otherwise({
+    $routeProvider.otherwise({ //default page view is list of ailments you can click on. 
         redirectTo: "/home"
     });
 

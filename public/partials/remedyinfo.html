@@ -1,10 +1,12 @@
 
   <div class="container">
     <div id="heading">
-      <h1>{{title}}</h1>
-      <h4>Remember, nothing on this page constitues medical advice! We are merely
+    <ailment-title></ailment-title>  
+      <h4>Remember, nothing on this page constitutes medical advice! We are merely
       trying to help you make more informed decisions about your health and wellness.</h4>
     </div>
+
+
 
 
 
@@ -13,9 +15,9 @@
          <img ng-src="{{remedy.remedyimage}}"/>
        </div> <!--image must appear AFTER the ng-repeat to ensure correct number display and in right spot-->
 
-        <button ng-click="upVote(remedy.id)">Click to Upvote This Remedy!</button>
+        <button ng-click="upVote(remedy.id)">Upvote This Remedy!</button>
         <div id="upvotes">
-          {{remedy.userupvotes}}
+          <p id="displayvotes">Upvotes for this remedy:{{remedy.userupvotes}}</p>
         </div>
           <div id="remedyDescription"></br>
           {{remedy.remedydescription}}</br>

@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Bellefair|Buda:300|Cutive+Mono|Italiana|PT+Mono');
 
 body {
-  background: url(images/sitebackground.jpg)/*no-repeat, center, center, fixed*/;
+  background: url(images/sitebackground2.jpg)/*no-repeat, center, center, fixed*/;
   background-size: cover;
-  opacity: 0.6;
+  opacity: 0.8;
   font-family: 'Buda', 'cursive';
   font-weight: 400;
   font-size: 1.2em;
@@ -13,15 +13,17 @@ body {
 
 @keyframes fadein {
     from { opacity: 0; }
-    to   { opacity: 0.7; }
+    to   { opacity: 0.8; }
 }
 
 #remedyDescription {
   font-size: 1.3em;
+  margin-left: 25px;
 }
 
 .remedyNames {
   font-size: 1.3em;
+  margin-left: 25px;
 }
 
 h4 {
@@ -30,10 +32,42 @@ h4 {
 }
 
 img {
-  width: 200px;
-  height: 150px; 
+  width: 225px;
+  height: 175px;
+  border-radius: 5px;
 }
-/*#remedyPic {
+
+button {
+  width: 175px;
+  height: 40px;
+  border-radius: 6px;
+  font-family: 'Bellefair', 'serif';
+  font-size: 0.8em;
+  line-height: 0.9em; /*setting this to just above font size ensure it will appear nicely*/
+  text-align: center;
+  overflow: auto;
+  background-color: #5FEAB5;
+  background-image: ;
+}
+
+
+button:focus {
+  background-image: ;
+  outline: none;
+}
+
+h1 {
+  text-shadow: 3px 2px 2px #5EF0B9;
+  letter-spacing: 1.9px;
+  color: #12754F;
+  font-weight: lighter;
+}
+
+/*.container {
+  opacity: 0.5;
+  background-color: #000000;
+}
+  /*#remedyPic {
   width: 150px;
   height: 150px;
 }
