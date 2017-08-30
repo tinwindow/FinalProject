@@ -8,7 +8,9 @@
     "express": "^4.15.4",
     "pg": "^7.2.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "dotenv": "^4.0.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -16,3 +18,5 @@
   "author": "Erin E Ura",
   "license": "ISC"
 }
+
+/*YOUR PASSWORD FOR PGADMIN IS WINTER!!!!!!!!!*/

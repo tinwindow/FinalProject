@@ -1,6 +1,6 @@
 var express = require('express'); //need to require these for this app to work. Body-parser allows us to return JSON data, express is node, pg is for the DB.
 var bodyParser = require('body-parser');
-var pg = require('pg');
+var pool = require("./pg-connection-pool");
 
 var app = express();
 // This allows us to accept JSON bodies in POSTs and PUTs.
@@ -11,14 +11,7 @@ app.use(express.static('public')); //this is telling it to use the public folder
 
 // Set up a connection pool with wich to access the database in all the
 // operations below.
-var pool = new pg.Pool({
-    user: "postgres",
-    password: "winter",
-    host: "localhost",
-    port: 5432,
-    database: 'finalproject',
-    ssl: false
-});
+
 
 
 app.get('/remedies', function(req, res) { //creates an endpoint matching requests to /remedies
