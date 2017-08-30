@@ -24,10 +24,10 @@ var pool = new pg.Pool({
 app.get('/remedies', function(req, res) { //creates an endpoint matching requests to /remedies
   var ailment = req.query.ailment; //sets ailment to the DB query of ailment dependent on what you click (clicking takes you to a query string result)
   console.log(ailment);
-  pool.query("select * from holistichealth where ailment=$1::text", [ ailment ]).then(function(result) {
+  pool.query("select * from holistichealth where ailment=$1::text ORDER BY userupvotes DESC", [ ailment ]).then(function(result) {
       res.send(result.rows); //above queries the pool with statement in (), sets the item in the array to "ailment", and returns the results of the rows associated with that ailment.
   }).catch(errorCallback(res));
-});
+}); //the where ailment=$1::text, [ailment] statement is setting the query to look for ailment in the DB
 
 
 

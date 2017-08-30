@@ -1,28 +1,31 @@
-
-  <div class="container">
-    <div id="heading">
+<div class="container">
+  <div id="heading">
     <ailment-title></ailment-title>
-      <h4>Remember, nothing on this page constitutes medical advice! We are merely
-      trying to help you make more informed decisions about your health and wellness.</h4>
-    </div>
-
-
-
-
-
-      <div class="remedyNames" ng-repeat ="remedy in remedies"></br>{{remedy.remedyname}}</br>
-        <div id="remedyPic">
-         <img ng-src="{{remedy.remedyimage}}"/>
-       </div> <!--image must appear AFTER the ng-repeat to ensure correct number display and in right spot-->
-
-        <button ng-click="upVote(remedy.id)">Recommend This Remedy!</button>
-        <div id="upvotes">
-          <p id="displayvotes">Recommendations for this remedy:{{remedy.userupvotes}}</p>
-        </div>
-          <div id="remedyDescription"></br>
-          {{remedy.remedydescription}}</br>
-          </div>
-      </div>
-
-
+    <p class ="disclaimer">Remember, nothing on this page constitutes medical advice! We are merely
+      trying to help you make more informed decisions about your health and wellness.</p>
   </div>
+
+
+
+
+
+  <div class="remedyNames" ng-repeat="remedy in remedies">
+    <h5>{{remedy.remedyname}}</h5>
+
+    <div id="remedyPic">
+      <img ng-src="{{remedy.remedyimage}}" />
+    </div>
+    <!--image must appear AFTER the ng-repeat to ensure correct number display and in right spot-->
+
+    <button ng-click="upVote(remedy.id)">Recommend This Remedy!</button>
+    <div id="upvotes">
+      <p id="displayvotes">Recommendations for this remedy:{{remedy.userupvotes}}</p>
+    </div>
+    <div id="remedyDescription">
+
+      {{remedy.remedydescription}}
+    </div>
+  </div>
+
+
+</div>

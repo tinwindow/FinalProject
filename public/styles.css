@@ -10,8 +10,8 @@ body {
   font-size: 1.2em;
   letter-spacing: 1.5px;
   animation: fadein 1.1s;
-  margin-left: 25px;
-  margin-right: 25px;
+  /*margin-left: 25px;
+  margin-right: 25px;*/
 }
 
 @keyframes fadein {
@@ -29,7 +29,7 @@ body {
   margin-left: 25px;
 }
 
-h4 {
+.disclaimer {
   font-size: 1.2em;
   font-style: italic;
 }
@@ -38,11 +38,25 @@ img {
   width: 225px;
   height: 175px;
   border-radius: 5px;
+  box-shadow: 5px 5px 5px #777777;
+  position: relative;
+  display: inline-block;
 }
+
+/*img:hover {
+    position:relative;
+    top:-20px;
+    left:-10px;
+    width:300px;
+    height:auto;
+    display:inline;
+    z-index:999;
+}*/
+
 
 button {
   width: 175px;
-  height: 40px;
+  height: 44px;
   border-radius: 6px;
   font-family: 'Bellefair', 'serif';
   font-size: 0.8em;
@@ -54,8 +68,8 @@ button {
 }
 
 
-button:focus {
-  background-image: ;
+button:hover {
+  background-image: url(images/exclusioncolorheal.jpg);
   outline: none;
 }
 
@@ -72,9 +86,6 @@ h3 {
   font-weight: lighter;
   font-style: oblique;
   font-family: 'Sacramento', 'cursive';
-  /*padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: -15px;*/
   margin: 0 auto;
 
 }
@@ -83,18 +94,21 @@ h3 {
   background: url(images/stickyheader.jpg);
   background-size: cover;
   text-align: center;
-  opacity: 0.6;
+  opacity: 0.7;
   height: 100px;
-  /*line-height: 3.7em;*/
+  width: 90%;
+  margin: 0 auto;
   margin-top: -10px;
-  padding-left: 5px;
-  padding-right: 5px;
   padding-top: 9px;
   animation: fadein 3.8s;
 }
  @keyframes fadein {
   from { opacity: 0; }
     to { opacity: 0.6; }
+}
+
+#remedyPic {
+  position:
 }
 
 
